@@ -368,6 +368,7 @@
             $dis += $row->item_discount;
             $tax += $row->item_tax;
         }
+        $row_count=count($rows);
         ?>
 
 
@@ -472,7 +473,7 @@
                         $erow++;
                         $totalRow++;
 
-                        if ($iii  == 12) {
+                        if ($totalRow ==11 && ($row_count-11)!=0) {
                             for($k=0;$k<12;$k++){
                                 echo '
                                
@@ -591,7 +592,7 @@
 
                     ?>
 
-                    <?php ?>
+                    <?php $space_count=0; ?>
 
                     <tr class="border b_foot" style="border-top: 1px solid black;">
                         <td rowspan="<?= $row; ?>" colspan="<?= $col; ?>"
@@ -615,7 +616,7 @@
                                 / <?= strtoupper(lang('order_discount')) ?></td>
                             <td align="right"><?= $this->erp->formatMoney($invs->order_discount); ?></td>
                         </tr>
-                    <?php endif; ?>
+                        <?php $space_count+=1; endif;  ?>
 
                     <?php if ($invs->shipping != 0) : ?>
                         <tr class="border-foot b_foot">
@@ -623,7 +624,7 @@
                                 / <?= strtoupper(lang('shipping')) ?></td>
                             <td align="right"><?= $this->erp->formatMoney($invs->shipping); ?></td>
                         </tr>
-                    <?php endif; ?>
+                        <?php  $space_count+=1;  endif; ?>
 
                     <?php if ($invs->order_tax != 0) : ?>
                         <tr class="border-foot b_foot">
@@ -631,7 +632,7 @@
                                 / <?= strtoupper(lang('order_tax')) ?></td>
                             <td align="right"><?= $this->erp->formatMoney($invs->order_tax); ?></td>
                         </tr>
-                    <?php endif; ?>
+                        <?php $space_count+=1;  endif; ?>
 
 
                     <?php
@@ -643,7 +644,7 @@
                             </td>
                             <td align="right"><b><?= $this->erp->formatMoney($invs->grand_total); ?></b></td>
                         </tr>
-                    <?php } ?>
+                        <?php  $space_count+=1;  } ?>
 
                     <?php if ($invs->paid != 0 || $invs->deposit != 0) { ?>
 
@@ -655,7 +656,7 @@
                                 </td>
                                 <td align="right"><?php echo $this->erp->formatMoney($invs->paid - $invs->deposit); ?></td>
                             </tr>
-                        <?php } ?>
+                            <?php $space_count+=1;  } ?>
                         <?php if ($balance != 0) { ?>
                             <tr class="border b_foot">
                                 <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ
@@ -664,11 +665,23 @@
                                 </td>
                                 <td align="right"><?= $this->erp->formatMoney($balance); ?></td>
                             </tr>
-                        <?php } ?>
+                            <?php   $space_count+=1;  } ?>
                     <?php } ?>
 
 
                     </tbody>
+
+                </table>
+                <table>
+                    <?php
+                    for($space_count;$space_count<7;$space_count++){
+                        echo '
+                <tr>
+                    <td height="28px"></td>
+                </tr>
+                ';
+                    }
+                    ?>
 
                 </table>
             </div>
