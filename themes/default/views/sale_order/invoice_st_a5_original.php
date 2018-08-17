@@ -370,8 +370,6 @@
         }
         $row_count=count($rows);
         ?>
-
-
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <table class="table1" style=" margin-top: 10px;">

@@ -668,8 +668,6 @@
                             </tr>
                         <?php   $space_count+=1;  } ?>
                     <?php } ?>
-
-
                     </tbody>
 
                 </table>
