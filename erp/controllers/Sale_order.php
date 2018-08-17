@@ -719,7 +719,7 @@ class Sale_order extends MY_Controller
         $this->data['rows'] = $this->sale_order_model->getAllInvoiceItemsById($id);
         $this->data['logo'] = true;
 
-        $this->load->view($this->theme .'sale_order/invoice_st_a5',$this->data);
+        $this->load->view($this->theme .'sale_order/invoice_st_a5_original',$this->data);
     }
 
 
