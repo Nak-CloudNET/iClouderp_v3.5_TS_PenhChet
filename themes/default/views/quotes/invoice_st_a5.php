@@ -198,6 +198,13 @@
         border: 1px solid black!important;
         /*background: red;*/
     }
+    .header_en1{
+        font-family: "Khmer OS Muol Light";
+        -moz-font-family: "Khmer OS System";
+        font-size: 18px;
+        font-weight: bold;
+        /*background: red;*/
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -224,8 +231,11 @@
                  style="margin-top: -20px !important;margin-left:-20px !important; font-size: 12px !important;">
                 <div class="myhide">
                     <center>
+                        <?php if ($biller->company_kh) { ?>
+                            <h3 class="header"><?= $biller->company_kh ?></h3>
+                        <?php } ?>
                         <?php if ($biller->company) { ?>
-                            <h3 class="header"><?= $biller->company ?></h3>
+                            <span class="header_en1"><?= $biller->company ?></span>
                         <?php } ?>
 
                         <div style="margin-top: 15px;">
@@ -676,7 +686,7 @@
                     for($space_count;$space_count<7;$space_count++){
                         echo '
                 <tr>
-                    <td height="30px"></td>
+                    <td height="26px"></td>
                 </tr>
                 ';
                     }

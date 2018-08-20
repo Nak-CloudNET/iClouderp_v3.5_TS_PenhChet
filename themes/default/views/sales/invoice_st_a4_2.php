@@ -158,6 +158,13 @@
         font-size: 18px;
 
     }
+    .header_en1{
+        font-family: "Khmer OS Muol Light";
+        -moz-font-family: "Khmer OS System";
+        font-size: 18px;
+        font-weight: bold;
+        /*background: red;*/
+    }
 
     .tb_f tr td {
         font-size: 13px;
@@ -230,9 +237,15 @@
                  style="margin-top: -20px !important;margin-left:-20px !important; font-size: 12px !important;">
                 <div class="myhide">
                     <center>
-                        <?php if ($biller->company) { ?>
-                            <h3 class="header"><?= $biller->company ?></h3>
+                        <?php if ($biller->company_kh) { ?>
+                            <h3 class="header"><?= $biller->company_kh ?></h3>
                         <?php } ?>
+                        <?php if ($biller->company) { ?>
+                            <span class="header_en1"><?= $biller->company ?></span>
+                        <?php } ?>
+                        <?php
+//                            $this->erp->print_arrays($biller);
+                        ?>
 
                         <div style="margin-top: 15px;">
                             <?php if (!empty($biller->vat_no)) { ?>
@@ -289,8 +302,8 @@
         <div class="row">
             <div class="col-sm-6 col-xs-6">
                 <table class="tb_f1">
-                    <?php if (!empty($customer->company)) { ?>
 
+                    <?php if (!empty($customer->company)) { ?>
                         <tr>
                             <td style="width: 45%;white-space: nowrap !important;  ">ក្រុមហ៊ុន / Company</td>
                             <td style="width: 5%;">:</td>
@@ -683,7 +696,7 @@
                     for($space_count;$space_count<7;$space_count++){
                         echo '
                 <tr>
-                    <td height="28px"></td>
+                    <td height="26px"></td>
                 </tr>
                 ';
                     }
@@ -699,7 +712,7 @@
     </div>    <!--div col sm 6 -->
 
     <div id="footer" class="row">
-        <div class="col-sm-4 col-xs-4" style="padding-top: 60px;">
+        <div class="col-sm-4 col-xs-4" style="padding-top: 0px;">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
@@ -712,7 +725,7 @@
 
             </center>
         </div>
-        <div class="col-sm-4 col-xs-4" style="padding-top: 60px;">
+        <div class="col-sm-4 col-xs-4" style="padding-top: 0px;">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
