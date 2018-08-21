@@ -100,9 +100,9 @@
 
     .thead th {
         text-align: center !important;
-        font-family: "Khmer OS Muol Light";
-        -moz-font-family: "Khmer OS System";
-        font-size: 14px;
+        font-family: "Khmer OS Muol Light" !important;
+        -moz-font-family: "Khmer OS System" !important;
+        font-size: 12px !important;
         font-weight: 100;
         padding: 3px;
         color: white;
@@ -664,18 +664,24 @@
                         </tr>
                         <?php  $space_count+=1;  } ?>
 
-                    <?php if ($invs->paid != 0 || $invs->deposit != 0) { ?>
-
-                        <?php if ($invs->paid != 0) { ?>
+                        <?php if ($invs->deposit != 0) { ?>
                             <tr class="border b_foot">
                                 <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">ប្រាក់កក់
                                     / <?= strtoupper(lang('deposit')) ?>
 
                                 </td>
-                                <td align="right"><?php echo $this->erp->formatMoney($invs->paid - $invs->deposit); ?></td>
+                                <td align="right"><?php echo $this->erp->formatMoney($invs->deposit); ?></td>
                             </tr>
                             <?php $space_count+=1;  } ?>
-                        <?php if ($balance != 0) { ?>
+
+                        <?php if ($invs->paid != 0) { ?>
+                            <tr class="border b_foot">
+                                <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">បានបង់
+                                    / <?= strtoupper(lang('paid')) ?>
+
+                                </td>
+                                <td align="right"><?php echo $this->erp->formatMoney($invs->paid - $invs->deposit); ?></td>
+                            </tr>
                             <tr class="border b_foot">
                                 <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ
                                     / <?= strtoupper(lang('balance')) ?>
@@ -684,7 +690,6 @@
                                 <td align="right"><?= $this->erp->formatMoney($balance); ?></td>
                             </tr>
                             <?php   $space_count+=1;  } ?>
-                    <?php } ?>
 
 
                     </tbody>
@@ -715,7 +720,7 @@
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 14px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
-                <p style="margin-top:-5px; font-size: 12px">Customer's Signature</p>
+                <p style="margin-top:-10px; font-size: 12px">Customer's Signature</p>
             </center>
 
         </div>
