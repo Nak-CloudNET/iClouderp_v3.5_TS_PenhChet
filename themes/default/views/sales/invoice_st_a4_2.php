@@ -16,7 +16,9 @@
     }
 
     .container {
-        width: 19.3cm;
+        width: 14.8cm;
+        margin: 0 auto;
+        padding: 0;
     }
 
     .title {
@@ -25,28 +27,23 @@
         font-size: 15px;
     }
 
-    @page {
-        size: 8.5in 11in;
-        margin: 2%;
-
-        @top-left {
-            content: "Hamlet";
-        }
-        @top-right {
-            content: "Page " counter(page);
-        }
-    }
-
     @media print {
+
+        .container {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            width: 98% !important;
+            height: 20cm !important;
+            margin-left: -2px !important;
+        }
+
         #footer {
-            /*position: fixed;*/
-            /*bottom: 0px;*/
+            position: fixed !important;
+            bottom: 0px !important;
+            font-size: 12px !important;
         }
         table.table1 { page-break-inside:auto }
 
-        .container {
-            margin-left: -10px !important;
-        }
 
         .customer_label {
             padding-left: 0 !important;
@@ -61,7 +58,7 @@
         }
 
         .row .col-sm-6 table tr, td {
-            font-size: 14px !important;
+            font-size: 12px !important;
         }
 
         .table1 thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th {
@@ -78,7 +75,7 @@
         }
 
         .table1 tr td {
-            font-size: 16px !important;
+            font-size: 13px !important;
         }
 
         .thead th span {
@@ -109,7 +106,6 @@
         font-weight: 100;
         padding: 3px;
         color: white;
-    !important;
     }
 
     .thead th span {
@@ -197,7 +193,7 @@
         }
         .no_display {
             display: table;
-            height: 37px
+            height: 15px
         }
     }
 
@@ -220,12 +216,10 @@
 </script>
 
 <body>
-<?php
-//    $this->erp->print_arrays($invs);
-?>
-<div class="container" style="margin: 0 auto;">
+
+<div class="container">
     <div class="col-xs-12" style="padding: 0">
-        <div class="row" style="margin-top: 20px !important;">
+        <div class="row" style="margin-top: 10px !important;">
             <div class="col-sm-3 col-xs-3 " style=" margin-top: 0px !important;">
 
                 <?php if (!empty($biller->logo)) { ?>
@@ -243,9 +237,7 @@
                         <?php if ($biller->company) { ?>
                             <span class="header_en1"><?= $biller->company ?></span>
                         <?php } ?>
-                        <?php
-//                            $this->erp->print_arrays($biller);
-                        ?>
+
 
                         <div style="margin-top: 15px;">
                             <?php if (!empty($biller->vat_no)) { ?>
@@ -271,13 +263,13 @@
 
                     </center>
                 </div>
-                <div class="invoice" style="margin-top:20px;">
+                <div class="invoice" style="margin-top:10px;">
                     <center>
                         <h4 style=" font-size: 15px !important;line-height:25px; font-weight: bold;
                         font-family:'Khmer OS Muol Light';
                         -moz-font-family: 'Khmer OS System';
                         font-size: 18px;">វិក្កយបត្រ</h4>
-                        <h4 style="font-size: 14px !important;margin-top: 3px;font-weight:bold;">Invoice</h4>
+                        <h4 style="font-size: 14px !important;margin-top: -10px;font-weight:bold;">Invoice</h4>
                     </center>
 
                 </div>
@@ -343,7 +335,7 @@
 
                 </table>
             </div>
-            <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
+            <div class="col-sm-6 col-xs-6">
                 <table class="tb_f">
                     <tr>
                         <td style="width: 45%; white-space: nowrap !important;">លេខវិក្កយបត្រ / Reference</td>
@@ -446,7 +438,7 @@
 
 
                         <tr class="tr_last"  style="border-right: 1px solid black;border-left: 1px solid black;">
-                            <td style="vertical-align: middle; text-align: ;border-right: 1px solid black;"><?php echo $no ?></td>
+                            <td style="vertical-align: middle; text-align:center ;border-right: 1px solid black;"><?php echo $no ?></td>
                             <td style="vertical-align: middle;border-right: 1px solid black;">
                                 <?= $row->product_code; ?>
                             </td>
@@ -491,82 +483,89 @@
                         $no++;
                         $erow++;
                         $totalRow++;
-
                         if ($totalRow ==11 && ($row_count-11)!=0) {
                             for($k=0;$k<12;$k++){
                                 echo '
-                               
                                    <tr class="no_display" style=""></tr>
-                                   <!--<tr class="no_display" style="border-bottom: 1px solid black"><td>&nbsp;</td></tr>-->
-
-                                   
                                 ';
-
                             }
 
                             $iii = 1;
+                        }
+
+
+                        if ($row_count <= 11) {
+                        ?>
+                            <style>
+                                @media print {
+                                    .container {
+                                        overflow: hidden !important;
+                                    }
+                                }
+                            </style>
+                            <?php
                         }
 
                     }
                     ?>
 
                     <?php
-                    if ($erow < 13) {
+                    if ($erow < 12) {
                         $k = 12 - $erow;
                         for ($j = 1; $j <= $k; $j++) {
                             if ($dis > 0) {
                                 if ($tax > 0) {
                                     echo '<tr style="border-bottom: 1px solid transparent;">
-													<td style="text-align: center; vertical-align: middle;border-right: 1px solid black;border-left: 1px solid black;">&nbsp;</td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-												</tr>';
+                                                    <td style="text-align: center; vertical-align: middle;border-right: 1px solid black;border-left: 1px solid black;">&nbsp;</td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                </tr>';
                                 } else {
                                     echo '<tr style="border-bottom: 1px solid transparent;">
                                                     <td style="text-align: center; vertical-align: middle;border-right: 1px solid black;border-left: 1px solid black;">&nbsp;</td>
-													<td style="text-align: center; vertical-align: middle;border-right: 1px solid black;">&nbsp;</td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													
-													
-												</tr>';
+                                                    <td style="text-align: center; vertical-align: middle;border-right: 1px solid black;">&nbsp;</td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    
+                                                    
+                                                </tr>';
                                 }
 
                             } else {
                                 if ($tax > 0) {
                                     echo '<tr style="border-bottom: 1px solid transparent;">
                                                     <td style="text-align: center; vertical-align: middle;border-right: 1px solid black;border-left: 1px solid black;">&nbsp;</td>
-													<td  style="text-align: center; vertical-align: middle;border-right: 1px solid black;">&nbsp;</td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													
-													
-												</tr>';
+                                                    <td  style="text-align: center; vertical-align: middle;border-right: 1px solid black;">&nbsp;</td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    
+                                                    
+                                                </tr>';
                                 } else {
                                     echo '<tr style="border-bottom: 1px solid transparent;">
                                                     <td style="text-align: center; vertical-align: middle;border-right: 1px solid black;border-left: 1px solid black;">&nbsp;</td>
-													<td  style="text-align: center; vertical-align: middle;border-right: 1px solid black;">&nbsp;</td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													<td style="border-right: 1px solid black;"></td>
-													
-												</tr>';
+                                                    <td  style="text-align: center; vertical-align: middle;border-right: 1px solid black;">&nbsp;</td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    <td style="border-right: 1px solid black;"></td>
+                                                    
+                                                </tr>';
                                 }
 
                             }
@@ -715,8 +714,8 @@
         <div class="col-sm-4 col-xs-4" style="padding-top: 0px;">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
-                <p style="margin-top:-5px; font-size: 14px">Customer's Signature</p>
+                <p style="font-size: 14px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
+                <p style="margin-top:-5px; font-size: 12px">Customer's Signature</p>
             </center>
 
         </div>
@@ -728,8 +727,8 @@
         <div class="col-sm-4 col-xs-4" style="padding-top: 0px;">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
-                <p style="margin-top:-10px; font-size: 14px">Seller's Signature</p>
+                <p style="font-size: 14px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
+                <p style="margin-top:-10px; font-size: 12px">Seller's Signature</p>
             </center>
 
         </div>
