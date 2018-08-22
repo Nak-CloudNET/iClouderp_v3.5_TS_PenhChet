@@ -180,7 +180,7 @@
 
     @media print {
         .table1 .tr_last:nth-child(12) {
-            border-bottom: 1px solid black;
+            /*border-bottom: 1px solid black;*/
         }
 
         .table1 .tr_last:nth-child(25) {
@@ -225,7 +225,7 @@
                 <div class="myhide">
                     <center>
                         <?php if ($biller->company_kh) { ?>
-                            <h3 class="header"><?= $biller->company_kh ?></h3>
+                            <h3 class="header" style="margin-bottom: 5px"><?= $biller->company_kh ?></h3>
                         <?php } ?>
                         <?php if ($biller->company) { ?>
                             <span class="header_en1"><?= $biller->company ?></span>
@@ -255,13 +255,13 @@
 
                     </center>
                 </div>
-                <div class="invoice" style="margin-top:10px;">
+                <div class="invoice" style="margin-top: -5px">
                     <center>
-                        <h4 style=" font-size: 15px !important;line-height:25px;
+                        <h4 style=" font-size: 14px !important;line-height:25px;
                         font-family:'Khmer OS Muol Light';
                         -moz-font-family: 'Khmer OS System';
                         font-size: 18px;">វិក្កយបត្របញ្ជាទិញ</h4>
-                        <h4 style="font-size: 16px !important;margin-top: -10px;font-weight:bold;">SALE ORDER INVOICE</h4>
+                        <h4 style="font-size: 14px !important;margin-top: -15px;font-weight:bold; margin-bottom: 5px">SALE ORDER</h4>
                     </center>
 
                 </div>
@@ -375,25 +375,25 @@
         ?>
         <div class="row">
             <div class="col-sm-12 col-xs-12">
-                <table class="table1" style=" margin-top: 10px;">
+                <table class="table1" style=" margin-top: 5px;">
                     <tbody style="font-size: 14px !important;">
                     <tr class="thead" style="background-color: #444 !important; color: #FFF !important;">
-                        <th style="border-right: 1px solid black;border-left: 1px solid black">ល.រ<br/><span>No</span></th>
-                        <th style="border-right: 1px solid black;">កូដ<br/><span>Code</span></th>
-                        <th style="border-right: 1px solid black;">បរិយាយ<br/><span>Description</span>
-                        <th style="border-right: 1px solid black;">ចំនួន<br/><span>Qty</span></th>
-                        <th style="border-right: 1px solid black;">ខ្នាត<br/><span>Unit</span></th>
+                        <th style="border-top: 1px solid black; border-right: 1px solid black;border-left: 1px solid black">ល.រ<br/><span>No</span></th>
+                        <th style="border-top: 1px solid black; border-right: 1px solid black;">កូដ<br/><span>Code</span></th>
+                        <th style="border-top: 1px solid black; border-right: 1px solid black;">បរិយាយ<br/><span>Description</span>
+                        <th style="border-top: 1px solid black; border-right: 1px solid black;">ចំនួន<br/><span>Qty</span></th>
+                        <th style="border-top: 1px solid black; border-right: 1px solid black;">ខ្នាត<br/><span>Unit</span></th>
 
-                        <th style="border-right: 1px solid black;">តម្លៃ<br/><span>U/P</span></th>
+                        <th style="border-top: 1px solid black; border-right: 1px solid black;">តម្លៃ<br/><span>U/P</span></th>
 
                         <?php if ($dis > 0) { ?>
-                            <th style="border-right: 1px solid black;">បញ្ចុះតម្លៃ<br/><span>Discount</span></th>
+                            <th style="border-top: 1px solid black; border-right: 1px solid black;">បញ្ចុះតម្លៃ<br/><span>Discount</span></th>
                         <?php } ?>
                         <?php if ($tax > 0) { ?>
-                            <th style="border-right: 1px solid black;">ពន្ធទំនិញ<br/><span>Tax</span></th>
+                            <th style="border-top: 1px solid black; border-right: 1px solid black;">ពន្ធទំនិញ<br/><span>Tax</span></th>
                         <?php } ?>
 
-                        <th width="80px" style="border-right: 1px solid black;">តម្លៃសរុប<br/><span>Subtotal</span></th>
+                        <th width="80px" style="border-top: 1px solid black; border-right: 1px solid black;">តម្លៃសរុប<br/><span>Subtotal</span></th>
                     </tr>
                     <?php
 
@@ -627,7 +627,7 @@
                         <tr class="border-foot b_foot">
                             <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">បញ្ចុះតម្លៃ
                                 / <?= strtoupper(lang('order_discount')) ?></td>
-                            <td align="right"><?= $this->erp->formatMoney($invs->order_discount); ?></td>
+                            <td align="right"><b><?= $this->erp->formatMoney($invs->order_discount); ?></b></td>
                         </tr>
                         <?php $space_count+=1; endif;  ?>
 
@@ -635,7 +635,7 @@
                         <tr class="border-foot b_foot">
                             <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">ដឹកជញ្ជូន
                                 / <?= strtoupper(lang('shipping')) ?></td>
-                            <td align="right"><?= $this->erp->formatMoney($invs->shipping); ?></td>
+                            <td align="right"><b><?= $this->erp->formatMoney($invs->shipping); ?></b></td>
                         </tr>
                         <?php  $space_count+=1;  endif; ?>
 
@@ -643,7 +643,7 @@
                         <tr class="border-foot b_foot">
                             <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">ពន្ធអាករ
                                 / <?= strtoupper(lang('order_tax')) ?></td>
-                            <td align="right"><?= $this->erp->formatMoney($invs->order_tax); ?></td>
+                            <td align="right"><b><?= $this->erp->formatMoney($invs->order_tax); ?></b></td>
                         </tr>
                         <?php $space_count+=1;  endif; ?>
 
@@ -671,7 +671,7 @@
                                     / <?= strtoupper(lang('deposit')) ?>
 
                                 </td>
-                                <td align="right"><?php echo $this->erp->formatMoney($invs->paid); ?></td>
+                                <td align="right"><b><?php echo $this->erp->formatMoney($invs->paid); ?></b></td>
                             </tr>
                             <?php $space_count+=1;  } ?>
 
@@ -681,7 +681,7 @@
                                     / <?= strtoupper(lang('balance')) ?>
 
                                 </td>
-                                <td align="right"><?= $this->erp->formatMoney($balance); ?></td>
+                                <td align="right"><b><?= $this->erp->formatMoney($balance); ?></b></td>
                             </tr>
                             <?php   $space_count+=1;  } ?>
 
@@ -714,7 +714,7 @@
         <div class="col-sm-4 col-xs-4" style="padding-top: 60px;">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 14px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
+                <p style="font-size: 14px !important;">ហត្ថលេខាអ្នកទិញ</p>
                 <p style="margin-top:-10px; font-size: 12px">Customer's Signature</p>
             </center>
 
@@ -727,7 +727,7 @@
         <div class="col-sm-4 col-xs-4" style="padding-top: 60px;">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 14px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
+                <p style="font-size: 14px !important">ហត្ថលេខាអ្នកលក់</p>
                 <p style="margin-top:-10px; font-size: 12px">Seller's Signature</p>
             </center>
 
