@@ -28,7 +28,6 @@
             width: 98% !important;
             margin: 0 auto !important;
             padding: 0 !important;
-            border: 1px solid red;
         }
         .pageBreak {
             page-break-after: always;
