@@ -21,20 +21,15 @@
         -mox-font-family:"Khmer OS Muol Light";
         font-size: 15px;
     }
-    @page {
-        size: 8.5in 11in;
-        margin: 2%;
-
-        @top-left {
-            content: "Hamlet";
-        }
-        @top-right {
-            content: "Page " counter(page);
-        }
-    }
 
 
     @media print {
+        .container {
+            width: 98% !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            border: 1px solid red;
+        }
         .pageBreak {
             page-break-after: always;
         }
@@ -119,7 +114,23 @@
     .header{
         font-family:"Khmer OS Muol Light";
         -moz-font-family: "Khmer OS System";
-        font-size: 12px;
+        font-size: 18px;
+    }
+    .header_en1{
+        font-family: "Khmer OS Muol Light";
+        -moz-font-family: "Khmer OS System";
+        font-size: 18px;
+        font-weight: bold;
+        /*background: red;*/
+    }
+    .thead th {
+        text-align: center !important;
+        font-family: "Khmer OS Muol Light" !important;
+        -moz-font-family: "Khmer OS System" !important;
+        font-size: 12px !important;
+        font-weight: 100;
+        padding: 3px;
+        color: white;
     }
 
 </style>
@@ -134,7 +145,7 @@
 </script>
 
 <body>
-<div class="container" style="margin: 0 auto;">
+<div class="container" style="margin: 0 auto; padding: 0">
     <div class="col-xs-12" style="padding: 0">
         <div class="row" style="margin-top: 20px !important;">
 
@@ -147,8 +158,11 @@
             <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important;margin-left:-20px !important;">
                 <div class="myhide">
                     <center >
-                        <?php if($biller->company) { ?>
-                            <h3 class="header"><?= $biller->company ?></h3>
+                        <?php if ($biller->company_kh) { ?>
+                            <h3 class="header" style="margin-bottom: 5px"><?= $biller->company_kh ?></h3>
+                        <?php } ?>
+                        <?php if ($biller->company) { ?>
+                            <span class="header_en1"><?= $biller->company ?></span>
                         <?php } ?>
 
                         <div style="margin-top: 15px;">
@@ -191,8 +205,8 @@
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <center>
-                    <h4 style="font-size: 14px !important; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រផ្ទេរទំនិញ</h4>
-                    <h4 style="font-size: 14px !important; font-weight: bold;">Invoice Transfer</h4>
+                    <h4 style="font-size: 14px !important; font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រផ្ទេរទំនិញ</h4>
+                    <h4 style="font-size: 14px !important; font-weight: bold; margin-top: -10px">Invoice Transfer</h4>
                 </center>
             </div>
         </div><br>
@@ -330,7 +344,7 @@
                         <td colspan="4" style="text-align: right; font-weight: bold;">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
                             (<?= $default_currency->code; ?>)
                         </td>
-                        <td align="right"><?= $this->erp->formatQuantity($row->TQty); ?></td>
+                        <td class="text-center"><?= $this->erp->formatQuantity($row->TQty); ?></td>
                     </tr>
 
 
@@ -350,25 +364,25 @@
     <div id="footer" class="row">
         <div class="col-sm-4 col-xs-4">
             <center>
-                <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកកាន់ឃ្លាំង</p>
-                <p style="margin-top:-10px; font-size: 14px">Stock Controller Signature</p>
+                <hr style="margin:0; border:1px solid #000; width: 90%">
+                <p style="font-size: 14px;">ហត្ថលេខាអ្នកកាន់ឃ្លាំង</p>
+                <p style="margin-top:-10px; font-size: 12px">Stock Controller Signature</p>
             </center>
         </div>
 
         <div class="col-sm-4 col-xs-4">
             <center>
-                <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកដឹក</p>
-                <p style="margin-top:-10px; font-size: 14px">Deliver's Signature</p>
+                <hr style="margin:0; border:1px solid #000; width: 90%">
+                <p style="font-size: 14px;">ហត្ថលេខាអ្នកដឹក</p>
+                <p style="margin-top:-10px; font-size: 12px">Deliver's Signature</p>
             </center>
         </div>
 
         <div class="col-sm-4 col-xs-4">
             <center>
-                <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទទួល</p>
-                <p style="margin-top:-10px; font-size: 14px">Receiver's Signature</p>
+                <hr style="margin:0; border:1px solid #000; width: 90%">
+                <p style="font-size: 14px;">ហត្ថលេខាអ្នកទទួល</p>
+                <p style="margin-top:-10px; font-size: 12px">Receiver's Signature</p>
             </center>
         </div>
     </div>

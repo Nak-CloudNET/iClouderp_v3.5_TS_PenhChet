@@ -32,7 +32,8 @@
             -webkit-page-break-after: always;
         }
         .container {
-            padding: 15px !important;
+            width: 98% !important;
+            margin: 0 auto !important;
         }
         .customer_label {
             padding-left: 0 !important;
@@ -41,17 +42,6 @@
             color:white !important;
             background: #444 !important;
 
-        }
-        tbody{
-            display:table-row-group;
-        }
-        thead {
-            display: table-header-group;
-            overflow: visible !important;
-        }
-        thead tr{
-            break:inside: auto;
-            clear:both;
         }
 
         .invoice_label {
@@ -96,25 +86,38 @@
     }
 	.company_addr h3:first-child {
         font-family: Khmer OS Muol !important;
-    //padding-left: 12% !important;
     }
 
     .company_addr h3:nth-child(2) {
         margin-top:-2px !important;
-    //padding-left: 130px !important;
         font-size: 26px !important;
         font-weight: bold;
     }
 
     .company_addr h3:last-child {
         margin-top:-2px !important;
-    //padding-left: 100px !important;
     }
     .header{
         font-family:"Khmer OS Muol Light";
         -moz-font-family: "Khmer OS System";
         font-size: 18px;
     }
+    .header_en1{
+        font-family: "Khmer OS Muol Light";
+        -moz-font-family: "Khmer OS System";
+        font-size: 18px;
+        font-weight: bold;
+        /*background: red;*/
+    }
+
+    #thead th {
+         font-family: "Khmer OS Muol Light" !important;
+        -moz-font-family: "Khmer OS System" !important;
+        font-size: 12px !important;
+        font-weight: 100;
+        padding: 3px;
+    }
+
 
     .table > thead > tr > th,.table > thead > tr > td, tbody > tr > th, .table > tfoot > tr > th, .table > tbody > tr > td, .table > tfoot > tr > td{
         padding:5px;
@@ -174,7 +177,7 @@
             <thead>
             <tr class="thead" style="border-left:none;border-right: none;border-top:none;">
                 <th colspan="9" style="border-left:none;border-right: none;border-top:none;border-bottom: 1px solid #000 !important;">
-                    <div class="row" style="margin-top: 0px !important;">
+                    <div class="row" style="margin-top: 10px !important;">
                         <div class="col-sm-3 col-xs-3 " style="margin-top: 0px !important;">
                             <br>
                             <?php if(!empty($biller->logo)) { ?>
@@ -184,8 +187,11 @@
                         <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important;">
                             <div class="myhide">
                                 <center >
-                                    <?php if($biller->company) { ?>
-                                        <h3 class="header"><?= $biller->company ?></h3>
+                                    <?php if ($biller->company_kh) { ?>
+                                        <h3 class="header" style="margin-bottom: 5px"><?= $biller->company_kh ?></h3>
+                                    <?php } ?>
+                                    <?php if ($biller->company) { ?>
+                                        <span class="header_en1"><?= $biller->company ?></span>
                                     <?php } ?>
 
                                     <div style="margin-top: 15px;">
@@ -228,7 +234,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-xs-12" >
                             <center>
-                                <h4 style="font-size: 14px !important;line-height: 25px; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រដឹកជញ្ជូន</h4>
+                                <h4 style="font-size: 14px !important;line-height: 25px;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រដឹកជញ្ជូន</h4>
                                 <h4 style="font-size: 14px !important; font-weight: bold;">Invoice Delivery</h4>
                             </center>
 
@@ -333,7 +339,7 @@
                     </div>
                 </th>
             </tr>
-            <tr class="border thead print" style="background-color: #444 !important; color: #FFF !important;">
+            <tr class="border thead print" id="thead" style="background-color: #444 !important; color: #FFF !important;">
                 <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
                 <th>លេខកូដ<br /><?= strtoupper(lang('code')) ?></th>
                 <th>បរិយាយ<br /><?= strtoupper(lang('description')) ?></th>
