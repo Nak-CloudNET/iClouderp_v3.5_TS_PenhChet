@@ -68,9 +68,7 @@
 
         #note {
             max-width: 95% !important;
-            margin: 0 auto !important;
             border-radius: 5px 5px 5px 5px !important;
-            margin-left: 26px !important;
             font-size: 12px !important;
         }
 
@@ -257,9 +255,9 @@
 
                     </center>
                 </div>
-                <div class="invoice" style="margin-top:10px;">
+                <div class="invoice" style="margin-top:-5px;">
                     <center>
-                        <h4 style=" font-size: 15px !important;line-height:25px; font-weight: bold;
+                        <h4 style=" font-size: 15px !important;line-height:25px;
                         font-family:'Khmer OS Muol Light';
                         -moz-font-family: 'Khmer OS System';
                         font-size: 18px;">តារាងតម្លៃ</h4>
@@ -389,7 +387,7 @@
                         <th style="border-right: 1px solid black;">ចំនួន<br/><span>Qty</span></th>
                         <th style="border-right: 1px solid black;">ខ្នាត<br/><span>Unit</span></th>
 
-                        <th style="border-right: 1px solid black;">តម្លៃ<br/><span>Unit Price</span></th>
+                        <th style="border-right: 1px solid black;">តម្លៃ<br/><span>U/P</span></th>
 
                         <?php if ($dis > 0) { ?>
                             <th style="border-right: 1px solid black;">បញ្ចុះតម្លៃ<br/><span>Discount</span></th>
@@ -433,7 +431,7 @@
 
 
                         <tr class="tr_last"  style="border-right: 1px solid black;border-left: 1px solid black;">
-                            <td style="vertical-align: middle; text-align: ;border-right: 1px solid black;"><?php echo $no ?></td>
+                            <td style="vertical-align: middle; text-align:center ;border-right: 1px solid black;"><?php echo $no ?></td>
                             <td style="vertical-align: middle;border-right: 1px solid black;">
                                 <?= $row->product_code; ?>
                             </td>
@@ -615,7 +613,7 @@
                     <tr class="border b_foot" style="border-top: 1px solid black;">
                         <td rowspan="<?= $row; ?>" colspan="<?= $col; ?>"
                             style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
-                            <div style="height: auto; padding-left: 0; position: relative;" id="note" class="col-md-12 col-xs-12">
+                            <div style="height: auto; padding-left: 0; position: absolute; margin-top: -10px" id="note" class="col-md-12 col-xs-12">
                                 <p><strong><u>Note:</u></strong>
                                     <?php echo($invs->invoice_footer); ?></p>
                             </div>
@@ -733,7 +731,7 @@
 
     <div style="width: 821px;margin: 20px">
 
-        <a class="btn btn-warning no-print" href="<?= site_url('sale_order/list_sale_order'); ?>"
+        <a class="btn btn-warning no-print" href="<?= site_url('quotes'); ?>"
            style="border-radius: 0">
             <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
         </a>

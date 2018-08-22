@@ -68,9 +68,7 @@
 
         #note {
             max-width: 95% !important;
-            margin: 0 auto !important;
             border-radius: 5px 5px 5px 5px !important;
-            margin-left: 26px !important;
             font-size: 12px !important;
         }
 
@@ -386,7 +384,7 @@
                         <th style="border-right: 1px solid black;">ចំនួន<br/><span>Qty</span></th>
                         <th style="border-right: 1px solid black;">ខ្នាត<br/><span>Unit</span></th>
 
-                        <th style="border-right: 1px solid black;">តម្លៃ<br/><span>Unit Price</span></th>
+                        <th style="border-right: 1px solid black;">តម្លៃ<br/><span>U/P</span></th>
 
                         <?php if ($dis > 0) { ?>
                             <th style="border-right: 1px solid black;">បញ្ចុះតម្លៃ<br/><span>Discount</span></th>
@@ -612,7 +610,7 @@
                     <tr class="border b_foot" style="border-top: 1px solid black;">
                         <td rowspan="<?= $row; ?>" colspan="<?= $col; ?>"
                             style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
-                            <div style="height: auto; padding-left: 0; position: relative;" id="note" class="col-md-12 col-xs-12">
+                            <div style="height: auto; padding-left: 0; position: absolute; margin-top: -10px" id="note" class="col-md-12 col-xs-12">
                                 <p><strong><u>Note:</u></strong>
                                     <?php echo($invs->invoice_footer); ?></p>
                             </div>
@@ -660,8 +658,14 @@
                             <td align="right"><b><?= $this->erp->formatMoney($invs->grand_total); ?></b></td>
                         </tr>
                         <?php  $space_count+=1;  } ?>
-
+            
                         <?php if ($invs->paid != 0) { ?>
+                            <style>
+                                #note {
+                                    position: relative !important;
+                                    margin-top: -25px !important;
+                                }
+                            </style>
                             <tr class="border b_foot">
                                 <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">ប្រាក់កក់
                                     / <?= strtoupper(lang('deposit')) ?>
