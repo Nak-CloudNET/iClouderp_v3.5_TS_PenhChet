@@ -259,7 +259,7 @@
                 </div>
                 <div class="invoice" style="margin-top:10px;">
                     <center>
-                        <h4 style=" font-size: 15px !important;line-height:25px; font-weight: bold;
+                        <h4 style=" font-size: 15px !important;line-height:25px;
                         font-family:'Khmer OS Muol Light';
                         -moz-font-family: 'Khmer OS System';
                         font-size: 18px;">វិក្កយបត្របញ្ជាទិញ</h4>
@@ -612,7 +612,7 @@
                     <tr class="border b_foot" style="border-top: 1px solid black;">
                         <td rowspan="<?= $row; ?>" colspan="<?= $col; ?>"
                             style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
-                            <div style="height: auto;" id="note" class="col-md-12 col-xs-12">
+                            <div style="height: auto; padding-left: 0; position: relative;" id="note" class="col-md-12 col-xs-12">
                                 <p><strong><u>Note:</u></strong>
                                     <?php echo($invs->invoice_footer); ?></p>
                             </div>

@@ -16,7 +16,9 @@
     }
 
     .container {
-        width: 19.3cm;
+        width: 14.8cm;
+        margin: 0 auto;
+        padding: 0;
     }
 
     .title {
@@ -25,28 +27,23 @@
         font-size: 15px;
     }
 
-    @page {
-        size: 8.5in 11in;
-        margin: 2%;
-
-        @top-left {
-            content: "Hamlet";
-        }
-        @top-right {
-            content: "Page " counter(page);
-        }
-    }
-
     @media print {
+
+        .container {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            width: 98% !important;
+            height: 20cm !important;
+            margin-left: -2px !important;
+        }
+
         #footer {
-            /*position: fixed;*/
-            /*bottom: 0px;*/
+            position: fixed !important;
+            bottom: 0px !important;
+            font-size: 12px !important;
         }
         table.table1 { page-break-inside:auto }
 
-        .container {
-            margin-left: -10px !important;
-        }
 
         .customer_label {
             padding-left: 0 !important;
@@ -61,7 +58,7 @@
         }
 
         .row .col-sm-6 table tr, td {
-            font-size: 14px !important;
+            font-size: 12px !important;
         }
 
         .table1 thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th {
@@ -78,7 +75,7 @@
         }
 
         .table1 tr td {
-            font-size: 16px !important;
+            font-size: 12px !important;
         }
 
         .thead th span {
@@ -103,13 +100,12 @@
 
     .thead th {
         text-align: center !important;
-        font-family: "Khmer OS Muol Light";
-        -moz-font-family: "Khmer OS System";
-        font-size: 14px;
+        font-family: "Khmer OS Muol Light" !important;
+        -moz-font-family: "Khmer OS System" !important;
+        font-size: 12px !important;
         font-weight: 100;
         padding: 3px;
         color: white;
-    !important;
     }
 
     .thead th span {
@@ -158,6 +154,13 @@
         font-size: 18px;
 
     }
+    .header_en1{
+        font-family: "Khmer OS Muol Light";
+        -moz-font-family: "Khmer OS System";
+        font-size: 18px;
+        font-weight: bold;
+        /*background: red;*/
+    }
 
     .tb_f tr td {
         font-size: 13px;
@@ -176,34 +179,26 @@
     .no_display{
         display: none;
     }
+
     @media print {
-        .no_display{
-            display: table;
-            height: 37px
-        }
-        .table1 .tr_last:nth-child(12){
+        .table1 .tr_last:nth-child(12) {
             border-bottom: 1px solid black;
         }
 
-        .table1 .tr_last:nth-child(25){
+        .table1 .tr_last:nth-child(25) {
             border-top: 1px solid black;
-            /*background: red;*/
         }
-
+        .no_display {
+            display: table;
+            height: 20px
+        }
     }
+
     .table1 .no_display:first-child td {
 
     }
     .b_foot td{
         border: 1px solid black!important;
-        /*background: red;*/
-    }
-    .header_en1{
-        font-family: "Khmer OS Muol Light";
-        -moz-font-family: "Khmer OS System";
-        font-size: 18px;
-        font-weight: bold;
-        /*background: red;*/
     }
 </style>
 
@@ -262,13 +257,13 @@
 
                     </center>
                 </div>
-                <div class="invoice" style="margin-top:20px;">
+                <div class="invoice" style="margin-top:10px;">
                     <center>
                         <h4 style=" font-size: 15px !important;line-height:25px; font-weight: bold;
                         font-family:'Khmer OS Muol Light';
                         -moz-font-family: 'Khmer OS System';
                         font-size: 18px;">តារាងតម្លៃ</h4>
-                        <h4 style="font-size: 14px !important;margin-top: 3px;font-weight:bold;">QUOTATION</h4>
+                        <h4 style="font-size: 14px !important;margin-top: -10px;font-weight:bold;">QUOTATION</h4>
                     </center>
 
                 </div>
@@ -334,7 +329,7 @@
 
                 </table>
             </div>
-            <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
+            <div class="col-sm-6 col-xs-6">
                 <table class="tb_f">
                     <tr>
                         <td style="width: 45%; white-space: nowrap !important;">លេខវិក្កយបត្រ / Reference</td>
@@ -499,6 +494,18 @@
                             $iii = 1;
                         }
 
+                        if ($row_count <= 11) {
+                        ?>
+                            <style>
+                                @media print {
+                                    .container {
+                                        overflow: hidden !important;
+                                    }
+                                }
+                            </style>
+                            <?php
+                        }
+
                     }
                     ?>
 
@@ -608,7 +615,7 @@
                     <tr class="border b_foot" style="border-top: 1px solid black;">
                         <td rowspan="<?= $row; ?>" colspan="<?= $col; ?>"
                             style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
-                            <div style="height: auto;" id="note" class="col-md-12 col-xs-12">
+                            <div style="height: auto; padding-left: 0; position: relative;" id="note" class="col-md-12 col-xs-12">
                                 <p><strong><u>Note:</u></strong>
                                     <?php echo($invs->invoice_footer); ?></p>
                             </div>
@@ -704,8 +711,8 @@
         <div class="col-sm-4 col-xs-4" style="">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
-                <p style="margin-top:-5px; font-size: 14px">Customer's Signature</p>
+                <p style="font-size: 14px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
+                <p style="margin-top:-10px; font-size: 12px">Customer's Signature</p>
             </center>
 
         </div>
@@ -717,8 +724,8 @@
         <div class="col-sm-4 col-xs-4" style="">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
-                <p style="margin-top:-10px; font-size: 14px">Seller's Signature</p>
+                <p style="font-size: 14px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
+                <p style="margin-top:-10px; font-size: 12px">Seller's Signature</p>
             </center>
 
         </div>
