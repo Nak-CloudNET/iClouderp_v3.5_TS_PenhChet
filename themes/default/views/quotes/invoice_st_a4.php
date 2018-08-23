@@ -129,6 +129,13 @@
         font-size: 14px;
         font-weight: 100;
     }
+    .header_en1{
+        font-family: "Khmer OS Muol Light";
+        -moz-font-family: "Khmer OS System";
+        font-size: 18px;
+        font-weight: bold;
+        /*background: red;*/
+    }
     .thead th span{
         font-weight: 700;
 
@@ -207,8 +214,11 @@
                 <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important;">
                         <div class="myhide">
                             <center >
-                                <?php if($biller->company) { ?>
-                                    <h3 class="header "><?= $biller->company ?></h3>
+                                <?php if ($biller->company_kh) { ?>
+                                    <h3 class="header" style="margin-bottom: 5px"><?= $biller->company_kh ?></h3>
+                                <?php } ?>
+                                <?php if ($biller->company) { ?>
+                                    <span class="header_en1"><?= $biller->company ?></span>
                                 <?php } ?>
 
                                 <div style="margin-top: 15px; font-size: 12px">
@@ -233,7 +243,7 @@
                         </div>
                     <div class="invoice" style="margin-top:2px;">
                         <center>
-                            <h4 style=" font-size: 15px !important;line-height:25px; font-weight: bold;
+                            <h4 style=" font-size: 15px !important;line-height:25px;
                         font-family:'Khmer OS Muol Light';
                         -moz-font-family: 'Khmer OS System';
                         font-size: 18px;">តារាងតម្លៃ</h4>

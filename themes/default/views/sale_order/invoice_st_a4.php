@@ -162,6 +162,13 @@
         -moz-font-family: "Khmer OS System";
         font-size: 18px;
     }
+    .header_en1{
+        font-family: "Khmer OS Muol Light";
+        -moz-font-family: "Khmer OS System";
+        font-size: 18px;
+        font-weight: bold;
+        /*background: red;*/
+    }
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -190,8 +197,11 @@
                 <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important; font-size: 12px">
                         <div class="myhide">
                             <center >
-                                <?php if($biller->company) { ?>
-                                    <h3 class="header"><?= $biller->company ?></h3>
+                                <?php if ($biller->company_kh) { ?>
+                                    <h3 class="header" style="margin-bottom: 5px"><?= $biller->company_kh ?></h3>
+                                <?php } ?>
+                                <?php if ($biller->company) { ?>
+                                    <span class="header_en1"><?= $biller->company ?></span>
                                 <?php } ?>
 
                                 <div style="margin-top: 15px;">
@@ -216,7 +226,7 @@
                         </div>
                         <div class="invoice" style="margin-top:20px;">
                         <center>
-							<h4 style="font-size: 14px !important;line-height:25px; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្របញ្ជាទិញ</h4>
+							<h4 style="font-size: 14px !important;line-height:25px;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្របញ្ជាទិញ</h4>
 							<h4 style="font-size: 14px !important;margin-top: 3px;font-weight:bold;">Sale Orders</h4>
 						</center>
 

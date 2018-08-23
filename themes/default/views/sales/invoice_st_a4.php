@@ -148,10 +148,19 @@
         font-weight: normal;
         text-align: center;
     }
-	.header{
-        font-family:"Khmer OS Muol Light";
+
+    .header {
+        font-family: "Khmer OS Muol Light";
         -moz-font-family: "Khmer OS System";
         font-size: 18px;
+
+    }
+    .header_en1{
+        font-family: "Khmer OS Muol Light";
+        -moz-font-family: "Khmer OS System";
+        font-size: 18px;
+        font-weight: bold;
+        /*background: red;*/
     }
 
 </style>
@@ -189,8 +198,11 @@
                                 <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important; font-size: 12px">
                                         <div class="myhide">
                                             <center >
-                                                <?php if($biller->company) { ?>
-                                                    <h3 class="header"><?= $biller->company ?></h3>
+                                                <?php if ($biller->company_kh) { ?>
+                                                    <h3 class="header" style="margin-bottom: 5px"><?= $biller->company_kh ?></h3>
+                                                <?php } ?>
+                                                <?php if ($biller->company) { ?>
+                                                    <span class="header_en1"><?= $biller->company ?></span>
                                                 <?php } ?>
 
                                                 <div style="margin-top: 15px;">
@@ -233,7 +245,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-xs-12">
                                     <center>
-										<h4 style="line-height:25px;font-size: 14px !important; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រ</h4>
+										<h4 style="line-height:25px;font-size: 14px !important; font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រ</h4>
 										<h4 style="font-size: 14px !important; font-weight: bold;">Invoice</h4>
                                     </center>
 
