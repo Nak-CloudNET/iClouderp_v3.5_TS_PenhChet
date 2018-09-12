@@ -180,15 +180,15 @@
 
     @media print {
 
-
         .table1 .tr_last:nth-child(12) {
-            /*border-bottom: 1px solid black;*/
+            border-bottom: 1px solid black;
         }
 
-        .table1 .tr_last:nth-child(25) {
+        .table1 .tr_last:nth-child(30) {
             border-top: 1px solid black;
-            /*background: red;*/
+
         }
+
         .no_display {
             display: table;
             height: 15px
@@ -337,7 +337,7 @@
             <div class="col-sm-6 col-xs-6">
                 <table class="tb_f">
                     <tr>
-                        <td style="width: 45%; white-space: nowrap !important;">លេខវិក្កយបត្រ / Reference</td>
+                        <td style="width: 45%; white-space: nowrap !important;">លេខវិក្កយបត្រ / Ref</td>
                         <td style="width: 5%; ">:</td>
                         <td style="width:50%;white-space: nowrap !important; "><?= $invs->reference_no ?></td>
                     </tr>
@@ -483,8 +483,13 @@
                         $erow++;
                         $totalRow++;
                         if ($totalRow ==11 && ($row_count-11)!=0) {
-                            for($k=0;$k<12;$k++){
+                            for($k=0;$k<19;$k++){
                                 echo '
+                                    <style>
+                                        .no_display{
+                                        
+                                        }
+                                    </style>
                                    <tr class="no_display" style=""></tr>
                                 ';
                             }
@@ -662,7 +667,7 @@
                             <td align="right"><b><?= $this->erp->formatMoney($invs->grand_total); ?></b></td>
                         </tr>
                         <?php  $space_count+=1;  } ?>
-            
+
                         <?php if ($invs->paid != 0) { ?>
                             <style>
                                 #note {

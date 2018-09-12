@@ -330,7 +330,7 @@
             <div class="col-sm-6 col-xs-6">
                 <table class="tb_f">
                     <tr>
-                        <td style="width: 45%; white-space: nowrap !important;">លេខវិក្កយបត្រ / Reference</td>
+                        <td style="width: 45%; white-space: nowrap !important;">លេខវិក្កយបត្រ / Ref</td>
                         <td style="width: 5%; ">:</td>
                         <td style="width:50%;white-space: nowrap !important; "><?= $invs->reference_no ?></td>
                     </tr>
