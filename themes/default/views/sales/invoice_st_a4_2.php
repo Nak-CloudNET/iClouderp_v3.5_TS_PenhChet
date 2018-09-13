@@ -496,8 +496,6 @@
 
                             $iii = 1;
                         }
-
-
                         if ($row_count <= 11) {
                         ?>
                             <style>

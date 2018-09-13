@@ -340,6 +340,7 @@
                         <td style="white-space: nowrap !important;"><?= $this->erp->hrld($invs->date); ?></td>
                     </tr>
                     <tr>
+
                         <td style="">អ្នកលក់ / Salesman</td>
                         <td style="">:</td>
                         <td><?= $invs->username; ?></td>

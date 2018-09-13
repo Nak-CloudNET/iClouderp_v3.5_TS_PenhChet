@@ -624,7 +624,6 @@ $footer='';
                 <p style="font-size: 16px !important; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
                 <p style="margin-top:-10px; font-size: 14px">Seller\'s Signature</p>
             </center>
-
         </div>
     </div>
 

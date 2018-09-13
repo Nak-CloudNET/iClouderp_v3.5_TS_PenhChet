@@ -241,7 +241,6 @@
                                 <p style="margin-top:-10px !important;white-space: nowrap;font-size: 12px !important;">
                                     អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
                             <?php } ?>
-
                             <?php if (!empty($biller->phone)) { ?>
                                 <p style="margin-top:-10px ;white-space: nowrap;font-size: 12px !important;">
                                     Tel:&nbsp;<?= $biller->phone; ?></p>
