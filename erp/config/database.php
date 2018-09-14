@@ -65,7 +65,7 @@
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'iclouderp_v3_5_penhchet',
+        'database' => 'iclouderp_v3_5_st_penhchet',
         'dbdriver' => 'mysqli',
         'dbprefix' => 'erp_',
         'pconnect' => FALSE,

@@ -528,6 +528,7 @@
                     $row++;
 
                 }
+
                 if($invs->paid != 0 && $invs->deposit != 0) {
                     $row += 3;
                 }elseif ($invs->paid != 0 && $invs->deposit == 0) {
@@ -559,7 +560,7 @@
                 <?php if ($invs->order_discount != 0) : ?>
                     <tr class="border-foot">
                         <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">បញ្ចុះតម្លៃ / <?= strtoupper(lang('order_discount')) ?></td>
-                        <td align="right"><?= $this->erp->formatMoney($invs->order_discount); ?></td>
+                        <td align="right"><b><?= $this->erp->formatMoney($invs->order_discount); ?></b></td>
                     </tr>
                 <?php endif; ?>
 
@@ -590,20 +591,30 @@
 
                 <?php if($invs->paid != 0 || $invs->deposit != 0){ ?>
 
-                    <?php if($invs->paid != 0) { ?>
+                    <?php if($invs->deposit != 0) { ?>
                         <tr  class="border">
                             <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">ប្រាក់កក់ / <?= strtoupper(lang('deposit')) ?>
 
                             </td>
-                            <td align="right"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
+                            <td align="right"><b><?php echo $this->erp->formatMoney($invs->deposit); ?></b></td>
                         </tr>
                     <?php } ?>
+                    <?php if($invs->paid != 0) { ?>
+
+                        <tr  class="border">
+                            <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">ប្រាក់បង់ / <?= strtoupper(lang('paid')) ?>
+
+                            </td>
+                            <td align="right"><b><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></b></td>
+                        </tr>
+                    <?php } ?>
+
                     <?php if($balance != 0) { ?>
                         <tr  class="border">
                             <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
 
                             </td>
-                            <td align="right"><?= $this->erp->formatMoney($balance); ?></td>
+                            <td align="right"><b><?= $this->erp->formatMoney($balance); ?></b></td>
                         </tr>
                     <?php } ?>
                 <?php } ?>
